@@ -43,13 +43,16 @@ app.all("*", (_, res) => {
   });
 });
 
-// DB
-async function main() {
-  await mongoose.connect(process.env.URI_CONNECTION);
-  console.log("mongoose was started");
-  app.listen(process.env.PORT, () => {
-    console.log(`App is listening to port: ${process.env.PORT}`);
-  });
-}
-
-main().catch((err) => console.log(err));
+(async () => {
+  try {
+    await mongoose.connect(process.env.URI_CONNECTION, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      useCreateIndex: true,
+      useFindAndModify: false,
+    });
+    console.log("DB connected");
+  } catch (error) {
+    console.log(error);
+  }
+})();
