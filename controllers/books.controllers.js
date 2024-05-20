@@ -85,14 +85,9 @@ const updateOneBook = asyncWrapper(async (req, res, next) => {
     });
   }
 
-  const updateBook = await Book.findById(req.params.id, { __v: false });
-
   return res.status(200).json({
     status: SUCCESS,
     code: 201,
-    data: {
-      updateBook,
-    },
     message: "Book Updated Successfully"
   });
 });
