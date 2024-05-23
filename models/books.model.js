@@ -20,4 +20,4 @@ const userSchema = new Schema(
   }
 );
 
-module.exports = new model("Cat", userSchema);
+module.exports = new model("Book", userSchema);
