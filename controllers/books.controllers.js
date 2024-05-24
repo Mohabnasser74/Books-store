@@ -52,7 +52,7 @@ const getOneBook = asyncWrapper(async (req, res, next) => {
     });
   };
 
-  res.setHeader("Cache-Control", "public, max-age=3600, must-revalidate");
+  res.setHeader("Cache-Control", "public, max-age=86400, must-revalidate");
 
   return res.status(200).json({
     status: SUCCESS,
