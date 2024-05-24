@@ -50,7 +50,9 @@ const getOneBook = asyncWrapper(async (req, res, next) => {
       code: 404,
       message: "Book not found",
     });
-  }
+  };
+
+  res.setHeader("Cache-Control", "public, max-age=60, must-revalidate");
 
   return res.status(200).json({
     status: SUCCESS,
