@@ -45,11 +45,7 @@ app.all("*", (_, res) => {
 
 // DB
 async function main() {
-  await mongoose.connect(process.env.URI_CONNECTION, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    poolSize: 10, // Example pool size
-  });
+  await mongoose.connect(process.env.URI_CONNECTION);
   console.log("mongoose was started");
   app.listen(process.env.PORT, () => {
     console.log(`App is listening to port: ${process.env.PORT}`);
